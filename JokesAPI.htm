@@ -1,0 +1,101 @@
+<html>
+	
+<head>
+	
+	<title>The Ultimate Joke Machine</title>
+
+
+	<!-- Load Axios library -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- SMTP library to send email -->
+	<script src="https://smtpjs.com/v3/smtp.js"></script> 
+
+	<script>@import url('https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&family=Noto+Serif+JP:wght@200&family=Roboto:wght@100&display=swap');</script>
+
+	<style>
+
+		body{
+
+			background-color: green
+			
+		}
+		
+	</style>
+
+</head>
+
+
+
+<body>
+	
+
+	<h1>The Ultimate Joke Machine</h1>
+	<p id="ptag1" style="font-family: Fontdiner Swanky, cursive" >Joke 1:</p>
+	<p id="ptag2" style="font-family: Fontdiner Swanky, cursive"></p>
+
+	<button onclick="superClick()" id="hi">Press for Answer</button>
+
+
+	<script type="text/javascript">
+
+				/* // this is Axios related syntax. Can also specify "param" to pass username/pwd for example */
+		axios({
+  			url: 'https://official-joke-api.appspot.com/random_joke',
+  			method: 'get'
+		})
+		// this writes data to console.log or an error code. Use just "response" to get ALL data including headers
+		// .then(response => console.log(response.data))
+		// .then is standard method for a Promise & allows callback to any function like "resultData()" or console.log()
+		.then (response => resultData(response.data))	
+		.catch(error => console.log(error));
+
+		var joke = "hello:";
+		var answer = "hello"
+
+	
+		function resultData(foo) {
+
+			joke = foo.setup;
+			answer = foo.punchline;
+			document.getElementById('ptag1').innerHTML = "Joke: " + joke;
+			
+
+        }
+
+        function superClick() {
+
+        	 	
+				 document.getElementById('ptag2').innerHTML = "Answer: " + answer;
+				
+				
+		}
+
+		
+		
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
