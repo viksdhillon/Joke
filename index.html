@@ -65,13 +65,16 @@
         function superClick() {
 
         	 	
-				 document.getElementById('ptag2').innerHTML = "Answer: " + answer;
+			document.getElementById('ptag2').innerHTML = "Answer: " + answer;
+			read(answer)
 				
-				
-		}
+	}
 
 		
-		
+	function read(text) {
+    		const ut = new SpeechSynthesisUtterance(text);
+    		speechSynthesis.speak(ut);
+	}  	
 
 
 
